@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "679210546089",
+    "project_id": "codeunity-cb57a",
+    "storage_bucket": "codeunity-cb57a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679210546089:android:e6952c7aca973e619ccab8",
+        "android_client_info": {
+          "package_name": "com.codeunity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "679210546089-ja3sflc762qih6h3n21i53utihikn1hu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAukU1Rt7Ai3YQ5_cbQdfxJ4_z_Ax-RLY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "679210546089-ja3sflc762qih6h3n21i53utihikn1hu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
