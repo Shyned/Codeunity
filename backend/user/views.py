@@ -6,13 +6,12 @@ from .models import UserModel
 #
 from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated, AllowAny
-
-
+from rest_framework.decorators import api_view
+from django.shortcuts import get_object_or_404
 # Create your views here.
 @api_view(["GET"])
-@permission_classes([IsAuthenticated])
-def get_user(request):
-    user = UserModel.objects.filter(user_firebase_id = request.fire_base_id)
-    serializer = UserSerializer(user,many= False)
+def get_user(pk):
+    user =  get_object_or_404(UserModel,pk=int(pk))
+    serializer = UserSerializer(user)
     return Response(serializer.data)
+
