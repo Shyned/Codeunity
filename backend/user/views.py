@@ -11,7 +11,7 @@ from django.shortcuts import get_object_or_404
 # Create your views here.
 @api_view(["GET"])
 def get_user(request,pk):
-    user =  get_object_or_404(UserModel,id=pk)
-    serializer = UserSerializer(user, many = True)
+    user = UserModel.objects.get(pk = pk)
+    serializer = UserSerializer(user)
     return Response(serializer.data)
 
