@@ -19,7 +19,7 @@ export default function App() {
     <Stack.Screen
       name="Chatroom"
       component={ChatPage}
-      options={{ tite: "Room" }}
+      options={{ tite: "ChatRoom" }}
     />
   );
 
@@ -37,7 +37,7 @@ export default function App() {
           <Stack.Screen
             name="Login"
             component={LoginPage}
-            options={{ tite: "login" }}
+            options={{ tite: "login", headerShown: false }}
           />
           <Stack.Screen
             name="signup"
@@ -49,15 +49,8 @@ export default function App() {
             component={HomePage}
             options={{ tite: "Welcome" }}
           />
-
-          <Stack.Screen
-            name="Navbar"
-            component={Navbar}
-            options={{ tite: "Navbar" }}
-          />
         </Stack.Navigator>
       </NavigationContainer>
-      <Navbar />
     </>
   );
 }
