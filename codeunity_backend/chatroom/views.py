@@ -15,3 +15,10 @@ def get_all_chatrooms(request):
     all_chatrooms = ChatroomModel.objects
     serializer = ChatroomSerializer( all_chatrooms, many = True)
     return Response(serializer.data)
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def get_chatroom(request,pk):
+    selected_room = ChatroomModel.objects.filter(room_name = pk)
+    serializer = ChatroomSerializer( selected_room)
+    return Response(serializer.data, status=status.HTTP_200_OK)
