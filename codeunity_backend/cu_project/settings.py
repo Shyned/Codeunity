@@ -77,7 +77,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'drf_jwt_backend.wsgi.application'
+WSGI_APPLICATION = 'cu_project.wsgi.application'
 
 
 # Password validation
