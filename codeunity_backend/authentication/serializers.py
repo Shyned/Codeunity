@@ -28,22 +28,14 @@ class RegistrationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        # If added new columns through the User model, add them in the fields
-        # list as seen below
-        fields = ('username', 'password', 'email',
-                  'first_name', 'last_name',)
+    
+        fields = ('username', 'password', 'email')
 
     def create(self, validated_data):
 
         user = User.objects.create(
             username=validated_data['username'],
-            email=validated_data['email'],
-            
-
-            # If added new columns through the User model, add them in this
-            # create method. Example below:
-
-            # is_student=validated_data['is_student']
+            email=validated_data['email']
         )
         user.set_password(validated_data['password'])
         user.save()
