@@ -7,5 +7,5 @@ from .models import ChatroomModel
 class ChatroomSerializer(serializers.ModelSerializer):
     class Meta:
         model = ChatroomModel
-        fields = ['room_name', 'room_creator', 'guest']
+        fields = [ 'room_creator', 'guest','name',]
         depth = 1

@@ -2,8 +2,8 @@ from rest_framework import serializers
 from .models import CommentModel
 
 
-class CommentSerializer(serializers.ModelSerializers):
+class CommentSerializer(serializers.ModelSerializer):
     class Meta:
-        Model = Comment
-        fields = ['user', 'room','comment', ]
+        Model = CommentModel
+        fields = ['user', 'room','comment' ]
         depth = 2

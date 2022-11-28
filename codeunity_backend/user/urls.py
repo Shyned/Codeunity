@@ -4,4 +4,6 @@ from user import views
 urlpatterns = [
     path('getuser/<pk>/', views.get_user),
     path('adduser/', views.add_user),
+    path('', views.get_all_user),
+    
 ]

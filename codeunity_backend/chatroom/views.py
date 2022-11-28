@@ -19,6 +19,6 @@ def get_all_chatrooms(request):
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
 def get_chatroom(request,pk):
-    selected_room = ChatroomModel.objects.filter(room_name = pk)
-    serializer = ChatroomSerializer( selected_room)
-    return Response(serializer.data, status=status.HTTP_200_OK)
+    selected_chatroom = ChatroomModel.objects.get(name = pk)
+    serializer = ChatroomSerializer(selected_chatroom)
+    return Response(serializer.data)
