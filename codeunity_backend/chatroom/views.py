@@ -16,9 +16,23 @@ def get_all_chatrooms(request):
     serializer = ChatroomSerializer( all_chatrooms, many = True)
     return Response(serializer.data)
 
-@api_view(["GET"])
+@api_view(["GET", "DElETE"])
 @permission_classes([IsAuthenticated])
 def get_chatroom(request,pk):
     selected_chatroom = ChatroomModel.objects.get(name = pk)
-    serializer = ChatroomSerializer(selected_chatroom)
-    return Response(serializer.data)
+    if request.method == "GET":
+        serializer = ChatroomSerializer(selected_chatroom)
+        return Response(serializer.data)
+    elif request.method  == "DELETE":
+        creator_room = selected_chatroom.objects.filter(room_creator=request.user)
+        creator_room.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
+@api_view(["POST"])
+@permission_classes([IsAuthenticated])
+def create_chat_room(request):
+    serializer = ChatroomSerializer(data = request.data)
+    if serializer.is_valid():
+        serializer.save(room_creator = request.user)
+        return Response(serializer.data, status= status.HTTP_201_CREATED)
+        return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
