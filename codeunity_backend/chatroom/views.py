@@ -16,17 +16,20 @@ def get_all_chatrooms(request):
     serializer = ChatroomSerializer( all_chatrooms, many = True)
     return Response(serializer.data)
 
-@api_view(["GET", "DElETE"])
+@api_view(["GET"])
 @permission_classes([IsAuthenticated])
 def get_chatroom(request,pk):
     selected_chatroom = ChatroomModel.objects.get(name = pk)
     if request.method == "GET":
         serializer = ChatroomSerializer(selected_chatroom)
         return Response(serializer.data)
-    elif request.method  == "DELETE":
-        creator_room = selected_chatroom.objects.filter(room_creator=request.user)
-        creator_room.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+
+@api_view(["DELETE"])
+@permission_classes([IsAuthenticated])  
+def delete_chatroom(request):
+    room_to_delete = ChatroomModel.objects.filter(room_creator = request.user)
+    room_to_delete.delete
+    return Response(status=status.HTTP_204_NO_CONTENT)
     
 @api_view(["POST"])
 @permission_classes([IsAuthenticated])

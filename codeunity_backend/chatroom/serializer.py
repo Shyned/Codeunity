@@ -9,3 +9,4 @@ class ChatroomSerializer(serializers.ModelSerializer):
         model = ChatroomModel
         fields = [ 'room_creator', 'guest','name',]
         depth = 1
+        
