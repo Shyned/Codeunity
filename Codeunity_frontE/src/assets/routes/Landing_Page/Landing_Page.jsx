@@ -7,10 +7,8 @@ import { Link, Stack } from "@mui/material";
 export default function Landing_Page() {
   return (
     <div>
-      <Stack spacing={1} alignItems="flex-end">
-        <Link>Sign In</Link>
-        <Link>Register</Link>
-      </Stack>
+      <Link to="login/">Sign In</Link>
+      <Link to="signup/">Register</Link>
 
       <h1>Codeunity</h1>
       <h2>Work Play Communicate</h2>
